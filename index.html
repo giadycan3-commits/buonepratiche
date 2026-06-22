@@ -324,7 +324,6 @@ footer .foot-note{ font-size:0.86rem; color:var(--ink-soft); max-width:480px; }
     <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Immagine precedente">&#8249;</button>
     <img id="lightboxImg" src="" alt="">
     <button class="lightbox-nav next" id="lightboxNext" aria-label="Immagine successiva">&#8250;</button>
-    <p class="lightbox-caption" id="lightboxCaption"></p>
   </div>
 </div>
 
@@ -343,7 +342,6 @@ footer .foot-note{ font-size:0.86rem; color:var(--ink-soft); max-width:480px; }
 
   const overlay   = document.getElementById('lightbox');
   const imgEl      = document.getElementById('lightboxImg');
-  const captionEl  = document.getElementById('lightboxCaption');
   const prevBtn    = document.getElementById('lightboxPrev');
   const nextBtn    = document.getElementById('lightboxNext');
   const closeBtn   = document.getElementById('lightboxClose');
@@ -357,7 +355,6 @@ footer .foot-note{ font-size:0.86rem; color:var(--ink-soft); max-width:480px; }
     const item = list[currentIndex];
     imgEl.src = item.src;
     imgEl.alt = item.caption || '';
-    captionEl.textContent = list.length > 1 ? `${item.caption || ''} (${currentIndex+1}/${list.length})` : (item.caption || '');
     const showNav = list.length > 1;
     prevBtn.hidden = !showNav;
     nextBtn.hidden = !showNav;
