@@ -45,6 +45,17 @@ p{ margin:0; }
 }
 .hero p.lede{ color:var(--ink-soft); max-width:560px; margin:0 auto; font-size:1.05rem; }
 
+.hero-title-row{ position:relative; }
+.hero-title-row .title-logo{
+  position:absolute; top:-10px; right:0;
+  width:240px; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+}
+@media (max-width:760px){
+  .hero-title-row .title-logo{
+    position:static; display:block; margin:14px auto 0;
+  }
+}
+
 /* ---------- STRIP 4 PANNELLI ---------- */
 .acts-strip{ max-width:1000px; margin:32px auto 0; }
 .acts-strip img{ width:100%; display:block; border-radius:14px; box-shadow:0 16px 40px -22px var(--shadow); }
@@ -225,7 +236,10 @@ footer .foot-note{ font-size:0.86rem; color:var(--ink-soft); max-width:480px; }
 
   <header class="hero">
     <span class="tag">Équipe Formativa Territoriale · Campania</span>
-  <h1>Il modello in 4 atti</h1>
+ <div class="hero-title-row">
+    <h1>Il modello in 4 atti</h1>
+    <img src="https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/main/logo_locandina.png" alt="Logo Équipe Formativa Campania" class="title-logo">
+  </div>
     <p class="subtitle">Dalla visione comune all'azione laboratoriale</p>
     <p class="lede">Come l'équipe organizza l'intervento di formazione su digitale e intelligenza artificiale in una scuola: dalla visione condivisa alla personalizzazione, fino al valore che ne nasce.</p>
   </header>
