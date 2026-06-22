@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il modello in 4 atti — Équipe Formativa Territoriale Campania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#F3F6FA;
+  --ink:#222B38;
+  --ink-soft:#5B6776;
+  --card-bg:#FFFFFF;
+  --shadow: rgba(34,43,56,.14);
+
+  --p1-bg:#FFF3DD; --p1-a:#E8A23D; --p1-d:#B97A1F;
+  --p2-bg:#E3F3F0; --p2-a:#3FA98F; --p2-d:#22785F;
+  --p3-bg:#ECF3E6; --p3-a:#6FA85C; --p3-d:#4C7A3D;
+  --p4-bg:#F4ECF8; --p4-a:#9A6FC9; --p4-d:#6F4499;
+
+  --display:'Baloo 2', system-ui, sans-serif;
+  --body:'Inter', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', monospace;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{ max-width:1280px; margin:0 auto; padding: 48px 24px 80px; }
+h1,h2,h3{ font-family:var(--display); margin:0; }
+p{ margin:0; }
+
+/* ---------- HERO ---------- */
+.hero{ text-align:center; margin-bottom:40px; }
+.hero .tag{
+  font-family:var(--mono); font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--p2-d); background:var(--p2-bg); display:inline-block; padding:6px 14px; border-radius:999px; margin-bottom:18px;
+}
+.hero h1{ font-size:clamp(2.2rem,5vw,3.4rem); font-weight:700; line-height:1.1; margin-bottom:2px;}
+.hero .subtitle{
+  font-family:var(--display); font-style:italic; font-weight:600; font-size:1.5rem;
+  color:var(--ink); margin:0 auto 1px; max-width:560px;
+}
+.hero p.lede{ color:var(--ink-soft); max-width:560px; margin:0 auto; font-size:1.05rem; }
+
+/* ---------- STRIP 4 PANNELLI ---------- */
+.acts-strip{ max-width:1000px; margin:32px auto 0; }
+.acts-strip img{ width:100%; display:block; border-radius:14px; box-shadow:0 16px 40px -22px var(--shadow); }
+
+/* ---------- STEPPER ---------- */
+.stepper{
+  position:relative; display:grid; grid-template-columns:repeat(4,1fr);
+  align-items:center; max-width:1000px; margin: 18px auto 56px;
+}
+.stepper-line{
+  position:absolute; left:4%; right:4%; top:50%; height:3px;
+  background:#D7DEE6; transform:translateY(-50%); z-index:0;
+}
+.stepper .dot{
+  position:relative; z-index:1; justify-self:center;
+  width:14px; height:14px; border-radius:50%; background:#D7DEE6; flex-shrink:0;
+  animation: stepPulse 6.4s ease-in-out infinite;
+}
+.stepper .dot:nth-of-type(1){ background:var(--p1-a); animation-delay:0s; }
+.stepper .dot:nth-of-type(2){ background:var(--p2-a); animation-delay:1.6s; }
+.stepper .dot:nth-of-type(3){ background:var(--p3-a); animation-delay:3.2s; }
+.stepper .dot:nth-of-type(4){ background:var(--p4-a); animation-delay:4.8s; }
+@keyframes stepPulse{ 0%,84%,100%{ transform:scale(1); box-shadow:none;} 8%{ transform:scale(1.6); box-shadow:0 0 0 6px rgba(0,0,0,0.04);} 16%{transform:scale(1);} }
+@media (max-width:700px){
+  .acts-strip, .stepper{ max-width:100%; }
+}
+
+/* ---------- SCENE ---------- */
+.scene{
+  display:flex; align-items:center; gap:32px;
+  border-radius:28px; padding:36px; margin-bottom:34px;
+  box-shadow: 0 22px 50px -30px var(--shadow);
+}
+.scene.reverse{ flex-direction:row-reverse; }
+.scene .text-col{ flex:1 1 260px; min-width:220px; }
+.scene .art-col{ flex:1.8 1 480px; min-width:340px; }
+.scene .eyebrow{
+  font-family:var(--mono); font-size:0.72rem; letter-spacing:.1em; text-transform:uppercase;
+  margin-bottom:10px; display:block;
+}
+.scene h2{ font-size:1.9rem; font-weight:700; margin-bottom:10px; }
+.scene .kicker{ font-weight:600; margin-bottom:10px; display:block; }
+.scene p.body-text{ color:var(--ink-soft); font-size:1rem; }
+.scene .sub-block{ margin-top:18px; padding-top:16px; border-top:1.5px dashed rgba(0,0,0,0.12); }
+.scene .sub-block + .sub-block{ margin-top:14px; }
+
+.s1{ background:var(--p1-bg); } .s1 .eyebrow,.s1 .kicker{ color:var(--p1-d); }
+.s2{ background:var(--p2-bg); } .s2 .eyebrow,.s2 .kicker{ color:var(--p2-d); }
+.s3{ background:var(--p3-bg); } .s3 .eyebrow,.s3 .kicker{ color:var(--p3-d); }
+.s4{ background:var(--p4-bg); } .s4 .eyebrow,.s4 .kicker{ color:var(--p4-d); }
+
+@media (max-width:760px){
+  .scene, .scene.reverse{ flex-direction:column; padding:26px; }
+}
+
+/* ---------- CHIPS (esempi AI/digitale, atto 2) ---------- */
+.chips{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:18px; }
+@media (max-width:520px){ .chips{ grid-template-columns:1fr; } }
+.chip{
+  background:var(--card-bg); border-radius:14px; padding:12px 14px;
+  font-size:0.86rem; color:var(--ink-soft); box-shadow:0 8px 18px -14px var(--shadow);
+}
+.chip strong{ display:block; color:var(--ink); font-size:0.88rem; margin-bottom:2px; }
+
+/* ---------- ART STAGE ---------- */
+.art-stage{ width:100%; aspect-ratio:4/3; }
+.art-stage svg{ width:100%; height:100%; display:block; }
+.art-stage--gif-full{
+  width:100%; aspect-ratio:499/920;
+  position:relative; overflow:hidden;
+}
+.art-stage--gif-full img{
+  position:absolute; top:0; left:0; height:100%; display:block; max-width:none;
+}
+
+/* person bob/sway */
+.bob{ animation: bob 2.6s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 100%; }
+.sway{ animation: sway 3.2s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 100%; }
+@keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-3.5px);} }
+@keyframes sway{ 0%,100%{transform:rotate(-2deg);} 50%{transform:rotate(2deg);} }
+
+.wave-arm{ transform-box:fill-box; transform-origin:88% 32%; animation:wave 1.5s ease-in-out infinite; }
+@keyframes wave{ 0%,100%{transform:rotate(0deg);} 50%{transform:rotate(-16deg);} }
+
+.node-dot{ animation:nodeGlow 2.4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+@keyframes nodeGlow{ 0%,100%{ opacity:.55; transform:scale(1);} 50%{opacity:1; transform:scale(1.25);} }
+.node-line{ stroke-dasharray:4 5; animation:dash 3s linear infinite; }
+@keyframes dash{ to{ stroke-dashoffset:-40; } }
+
+.block{ animation:blockBounce 2.2s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 100%; }
+@keyframes blockBounce{ 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-6px) rotate(-4deg);} }
+
+.chart-bar{ transform-box:fill-box; transform-origin:50% 100%; animation:barGrow 2.4s ease-in-out infinite; }
+@keyframes barGrow{ 0%,100%{ transform:scaleY(.7);} 50%{transform:scaleY(1);} }
+
+.pin{ animation:pinPulse 2s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 100%; }
+@keyframes pinPulse{ 0%,100%{ transform:scale(1);} 50%{transform:scale(1.15);} }
+
+.thought{ animation:thoughtFade 4.5s ease-in-out infinite; }
+@keyframes thoughtFade{ 0%,18%,100%{opacity:0; transform:translateY(4px);} 30%,70%{opacity:1; transform:translateY(0);} 82%{opacity:0;} }
+
+.gear{ transform-box:fill-box; transform-origin:center; animation:spin 7s linear infinite; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.bulb-glow{ animation:glow 1.8s ease-in-out infinite; transform-box:fill-box; transform-origin:center; }
+@keyframes glow{ 0%,100%{ opacity:.5; transform:scale(1);} 50%{opacity:1; transform:scale(1.18);} }
+.book-tilt{ transform-box:fill-box; transform-origin:50% 100%; animation:tilt 2.6s ease-in-out infinite; }
+@keyframes tilt{ 0%,100%{transform:rotate(-4deg);} 50%{transform:rotate(4deg);} }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; }
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px;
+  padding-top:30px; border-top:1.5px dashed rgba(34,43,56,.2); margin-top:10px;
+}
+.stamp-logo{
+  width:160px; flex-shrink:0;
+  transform:rotate(-6deg);
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,0.18));
+  transition:transform .3s ease;
+}
+.stamp-logo:hover{ transform:rotate(0deg) scale(1.05); }
+footer .foot-note{ font-size:0.86rem; color:var(--ink-soft); max-width:480px; }
+
+/* ---------- TITOLI CLICCABILI ---------- */
+.act-title-btn{
+  font: inherit; font-family:var(--display); font-weight:700; font-size:inherit;
+  background:none; border:none; padding:0; margin:0; cursor:pointer;
+  color:var(--ink); display:inline-flex; align-items:center; gap:8px;
+  text-align:left; border-bottom:2px dashed transparent; transition:border-color .2s ease, color .2s ease;
+}
+.act-title-btn:hover, .act-title-btn:focus-visible{ border-bottom-color:currentColor; }
+.act-title-icon{ width:0.62em; height:0.62em; opacity:0; transform:translate(-4px,4px) scale(.7); transition:opacity .2s ease, transform .2s ease; flex-shrink:0; }
+.act-title-btn:hover .act-title-icon, .act-title-btn:focus-visible .act-title-icon{ opacity:0.7; transform:translate(0,0) scale(1); }
+.s1 .act-title-btn:hover, .s1 .act-title-btn:focus-visible{ color:var(--p1-d); }
+.s2 .act-title-btn:hover, .s2 .act-title-btn:focus-visible{ color:var(--p2-d); }
+.s3 .act-title-btn:hover, .s3 .act-title-btn:focus-visible{ color:var(--p3-d); }
+.s4 .act-title-btn:hover, .s4 .act-title-btn:focus-visible{ color:var(--p4-d); }
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox-overlay{
+  position:fixed; inset:0; background:rgba(20,24,30,0.88);
+  display:none; align-items:center; justify-content:center; z-index:1000;
+  padding:24px;
+}
+.lightbox-overlay.open{ display:flex; }
+.lightbox-box{
+  position:relative; max-width:min(900px,92vw); max-height:88vh;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+}
+.lightbox-box img{
+  max-width:100%; max-height:74vh; border-radius:14px; object-fit:contain;
+  background:#fff; box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+.lightbox-caption{ color:#fff; font-family:var(--mono); font-size:0.8rem; opacity:.85; text-align:center; }
+.lightbox-close{
+  position:absolute; top:-44px; right:0; background:none; border:none; color:#fff;
+  font-size:1.8rem; line-height:1; cursor:pointer; padding:6px 10px;
+}
+.lightbox-nav{
+  position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.92);
+  border:none; border-radius:50%; width:42px; height:42px; cursor:pointer; font-size:1.3rem;
+  display:flex; align-items:center; justify-content:center; color:var(--ink);
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
+.lightbox-nav.prev{ left:-54px; } .lightbox-nav.next{ right:-54px; }
+@media (max-width:680px){
+  .lightbox-nav.prev{ left:6px; } .lightbox-nav.next{ right:6px; }
+  .lightbox-close{ top:-40px; right:0; }
+}
+.lightbox-nav[hidden]{ display:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="tag">Équipe Formativa Territoriale · Campania</span>
+    <h1>Il modello in 4 atti</h1>
+    <p class="subtitle">Dalla visione comune all'azione laboratoriale</p>
+    <p class="lede">Come l'équipe organizza l'intervento di formazione su digitale e intelligenza artificiale in una scuola: dalla visione condivisa alla personalizzazione, fino al valore che ne nasce.</p>
+  </header>
+
+  <div class="acts-strip">
+    <img src="URL_STRIP_4_ATTI" alt="I 4 atti illustrati in sequenza: plenaria, sottogruppi, personalizzazione sul territorio, sinergia">
+  </div>
+
+  <div class="stepper" aria-hidden="true">
+    <div class="stepper-line"></div>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <!-- ATTO 1 -->
+  <section class="scene s1">
+    <div class="text-col">
+      <span class="eyebrow">Atto 1 · Tutti insieme</span>
+      <h2><button type="button" class="act-title-btn" data-act="atto1">La visione in plenaria<svg class="act-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 L4 19 L9 19 M19 5 L19 10 M19 5 L14 5 M19 5 L9 15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
+      <span class="kicker">Quadro concettuale e metodologico condiviso</span>
+      <p class="body-text">L'équipe presenta a tutti i partecipanti un quadro concettuale comune sul digitale e l'AI, costruito per orientare il lavoro che seguirà nei sottogruppi.</p>
+    </div>
+    <div class="art-col">
+      <div class="art-stage art-stage--gif-full" style="aspect-ratio:499/920;">
+        <img src="https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/main/atto1_gif%20plenaria.gif" alt="Animazione: plenaria — quadro concettuale e metodologico condiviso" style="width:330.5%; left:-18.62%;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ATTO 2 -->
+  <section class="scene s2 reverse">
+    <div class="text-col">
+      <span class="eyebrow">Atto 2 · In sottogruppi</span>
+      <h2><button type="button" class="act-title-btn" data-act="atto2">Lavoro in piccoli gruppi<svg class="act-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 L4 19 L9 19 M19 5 L19 10 M19 5 L14 5 M19 5 L9 15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
+      <p class="body-text">Suddivisione in sottogruppi per personalizzare i contenuti e realizzare attività laboratoriali specifiche sul digitale e l'AI.</p>
+      <div class="chips">
+        <div class="chip"><strong>AI per la didattica</strong>Materiali differenziati con l'AI generativa.</div>
+        <div class="chip"><strong>Cittadinanza digitale</strong>Uso critico dell'AI con gli studenti.</div>
+        <div class="chip"><strong>Strumenti no-code</strong>Quiz, podcast e mini-siti senza programmare.</div>
+        <div class="chip"><strong>Tecnologie assistive</strong>AI a supporto di BES e inclusione.</div>
+      </div>
+    </div>
+    <div class="art-col">
+      <div class="art-stage art-stage--gif-full" style="aspect-ratio:503/920;">
+        <img src="https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/main/atto2_gif%20sottogruppi.gif" alt="Animazione: lavoro in piccoli gruppi — sottogruppi attorno ai tavoli" style="width:327.87%; left:-113.99%;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ATTO 3 -->
+  <section class="scene s3">
+    <div class="text-col">
+      <span class="eyebrow">Atto 3 · Sul territorio</span>
+      <h2><button type="button" class="act-title-btn" data-act="atto3">Personalizzazione e contesto<svg class="act-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 L4 19 L9 19 M19 5 L19 10 M19 5 L14 5 M19 5 L9 15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
+      <p class="body-text">Ancoraggio della formazione ai bisogni reali dell'utenza scolastica e del territorio locale: ogni gruppo adatta i contenuti digitali e di AI alla scuola in cui si trova.</p>
+    </div>
+    <div class="art-col">
+      <div class="art-stage art-stage--gif-full" style="aspect-ratio:344/629;">
+        <img src="https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/main/atto3_gif_personalizzazione_territorio.gif" alt="Animazione: personalizzazione e contesto — ancoraggio al territorio" style="width:327.59%; left:-128.87%;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ATTO 4 -->
+  <section class="scene s4 reverse">
+    <div class="text-col">
+      <span class="eyebrow">Atto 4 · Il valore del modello</span>
+      <h2><button type="button" class="act-title-btn" data-act="atto4">Sinergia e punti di forza<svg class="act-title-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14 L4 19 L9 19 M19 5 L19 10 M19 5 L14 5 M19 5 L9 15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
+      <div class="sub-block">
+        <span class="kicker">Coesione dell'équipe Campania</span>
+        <p class="body-text">L'alternanza tra plenaria e sottogruppi valorizza le competenze dei singoli componenti dell'équipe.</p>
+      </div>
+      <div class="sub-block">
+        <span class="kicker">Flessibilità e apprendimento attivo</span>
+        <p class="body-text">Un approccio pratico che favorisce il trasferimento immediato delle competenze nella quotidianità professionale.</p>
+      </div>
+    </div>
+    <div class="art-col">
+      <div class="art-stage art-stage--gif-full" style="aspect-ratio:426/767;">
+        <img src="https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/main/atto4_gif_sinergia_equipe.gif" alt="Animazione: sinergia e punti di forza — équipe e apprendimento attivo" style="width:322.58%; left:-128.24%;">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/main/logo_locandina.png" alt="Logo Modello in 4 atti — Équipe Formativa Campania" class="stamp-logo">
+    <p class="foot-note">Modello in 4 atti — plenaria, sottogruppi, personalizzazione sul territorio, sinergia — applicato ai percorsi di formazione su digitale e intelligenza artificiale nelle scuole.</p>
+  </footer>
+
+</div>
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Galleria immagini">
+  <div class="lightbox-box">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Chiudi">&times;</button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Immagine precedente">&#8249;</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Immagine successiva">&#8250;</button>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+  // Numero di immagini variabile per atto: aggiungi/togli URL liberamente in ogni array.
+  const actImages = {
+    atto1: [
+      { src: "https://raw.githubusercontent.com/giadycan3-commits/buonepratiche/9cac4ee25e646a60fadc98fedd576eb95d10f186/foto.atto1.jpg", caption: "Atto 1 — foto 1" }
+    ],
+    atto2: [],
+    atto3: [],
+    atto4: []
+  };
+
+  const overlay   = document.getElementById('lightbox');
+  const imgEl      = document.getElementById('lightboxImg');
+  const captionEl  = document.getElementById('lightboxCaption');
+  const prevBtn    = document.getElementById('lightboxPrev');
+  const nextBtn    = document.getElementById('lightboxNext');
+  const closeBtn   = document.getElementById('lightboxClose');
+
+  let currentAct = null;
+  let currentIndex = 0;
+
+  function renderImage(){
+    const list = actImages[currentAct] || [];
+    if(list.length === 0) return;
+    const item = list[currentIndex];
+    imgEl.src = item.src;
+    imgEl.alt = item.caption || '';
+    captionEl.textContent = list.length > 1 ? `${item.caption || ''} (${currentIndex+1}/${list.length})` : (item.caption || '');
+    const showNav = list.length > 1;
+    prevBtn.hidden = !showNav;
+    nextBtn.hidden = !showNav;
+  }
+
+  function openLightbox(act){
+    const list = actImages[act] || [];
+    if(list.length === 0) return; // nessuna immagine ancora collegata per questo atto
+    currentAct = act;
+    currentIndex = 0;
+    renderImage();
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showNext(){
+    const list = actImages[currentAct] || [];
+    if(list.length < 2) return;
+    currentIndex = (currentIndex + 1) % list.length;
+    renderImage();
+  }
+  function showPrev(){
+    const list = actImages[currentAct] || [];
+    if(list.length < 2) return;
+    currentIndex = (currentIndex - 1 + list.length) % list.length;
+    renderImage();
+  }
+
+  document.querySelectorAll('.act-title-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openLightbox(btn.dataset.act));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  nextBtn.addEventListener('click', showNext);
+  prevBtn.addEventListener('click', showPrev);
+
+  overlay.addEventListener('click', (e)=>{
+    if(e.target === overlay) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e)=>{
+    if(!overlay.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') showNext();
+    if(e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+
+</body>
+</html>
